@@ -6,12 +6,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    steps:
-
-
   npm-publish:
     name: npm-publish
     runs-on: ubuntu-latest
