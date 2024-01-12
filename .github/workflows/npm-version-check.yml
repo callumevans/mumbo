@@ -1,0 +1,29 @@
+name: npm-version-check
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  npm-version-check:
+    name: npm-version-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Version Check
+        id: check
+        uses: EndBug/version-check@v2.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          file-url: https://unpkg.com/a-simple-migration-runner@latest/package.json
+          static-checking: localIsNew
+
+      - name: Version has changed
+        if: steps.check.outputs.changed == 'true'
+        run: exit 0
+
+      - name: Version has not been updated
+        if: steps.check.outputs.changed == 'false'
+        run: exit 1

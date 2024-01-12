@@ -1,13 +1,13 @@
 import http from "http";
 import { AddressInfo } from "node:net";
 
-export type DumboRequestLog = {
+export type MumboRequestLog = {
     url: URL;
     method: string;
     body: string;
 };
 
-export type DumboServerStartResult = {
+export type MumboServerStartResult = {
     port: number;
 };
 
@@ -22,17 +22,17 @@ type MockResponseRoute = {
     getResponse: () => MockedResponse;
 };
 
-export type DumboServer = {
-    Start: (port?: number) => Promise<DumboServerStartResult>;
+export type MumboServer = {
+    Start: (port?: number) => Promise<MumboServerStartResult>;
     Stop: () => Promise<void>;
-    GetRequests: () => DumboRequestLog[];
+    GetRequests: () => MumboRequestLog[];
     ClearRequests: () => void;
     ConfigureResponse: (method: string, path: string, response: () => MockedResponse) => void;
 };
 
-export function CreateServer(): DumboServer {
+export function CreateServer(): MumboServer {
     const server = http.createServer();
-    const requests: DumboRequestLog[] = [];
+    const requests: MumboRequestLog[] = [];
     const mockResponseRoutes: MockResponseRoute[] = [];
 
     let body: any[] = [];
@@ -58,7 +58,7 @@ export function CreateServer(): DumboServer {
                 response.statusCode = statusCode;
 
                 if (body) {
-                    response.write(JSON.stringify(body));
+                    response.write(body);
                 }
             }
 
@@ -67,8 +67,8 @@ export function CreateServer(): DumboServer {
     });
 
     return {
-        Start: async (port?: number): Promise<DumboServerStartResult> => {
-            return new Promise<DumboServerStartResult>((res, rej) => {
+        Start: async (port?: number): Promise<MumboServerStartResult> => {
+            return new Promise<MumboServerStartResult>((res, rej) => {
                 server.listen(port ?? 0, "localhost", () => {
                     res({
                         port: (server.address() as AddressInfo)?.port ?? null,

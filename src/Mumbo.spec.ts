@@ -1,4 +1,4 @@
-import { CreateServer, DumboRequestLog, DumboServerStartResult } from "@Dumbo";
+import { CreateServer, DumboRequestLog, DumboServerStartResult } from "@Mumbo";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("Starting and stopping the server", () => {
@@ -214,10 +214,10 @@ describe("Configuring responses", () => {
             server.ConfigureResponse("GET", "/mocked-response-body", () => {
                 return {
                     statusCode: 200,
-                    body: {
+                    body: JSON.stringify({
                         test: "response",
                         number: 123,
-                    },
+                    }),
                 };
             });
 
