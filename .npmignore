@@ -1,0 +1,8 @@
+.github
+node_modules
+src
+dprint.json
+.gitignore
+tsconfig.json
+vite.config.js
+yarn.lock
