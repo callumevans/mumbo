@@ -10,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/callumevans/mumbo.git"
   },
-  "private": true,
   "dependencies": {
     "vite": "5.0.11",
     "vitest": "1.1.3",
