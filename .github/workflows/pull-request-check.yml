@@ -1,0 +1,73 @@
+name: npm-version-check
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linting:
+    name: npm-version-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+
+      - name: Check linting
+        run: |-
+          npm run lint:check
+
+  version-check:
+    name: npm-version-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Version Check
+        id: check
+        uses: EndBug/version-check@v2.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          file-url: https://unpkg.com/mumbo@latest/package.json
+          static-checking: localIsNew
+
+      - name: Version has changed
+        if: steps.check.outputs.changed == 'true'
+        run: exit 0
+
+      - name: Version has not been updated
+        if: steps.check.outputs.changed == 'false'
+        run: exit 1
+
+  tests:
+    name: npm-version-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+
+      - name: Install dependencies
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+
+      - name: Check linting
+        run: |-
+          npm test
