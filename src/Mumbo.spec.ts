@@ -20,10 +20,6 @@ describe("Starting and stopping the server", () => {
             expect(response?.ok).toBe(true);
         });
 
-        it("Should return the current Dumbo version in a custom response header", async () => {
-            expect(response?.ok).toBe(true);
-        });
-
         it("Should return the port the server was started on", () => {
             expect(serverStartResult?.port).toEqual(9091);
         });
@@ -44,10 +40,6 @@ describe("Starting and stopping the server", () => {
         });
 
         it("Should listen for requests on the provided port", async () => {
-            expect(response?.ok).toBe(true);
-        });
-
-        it("Should return the current Dumbo version in a custom response header", async () => {
             expect(response?.ok).toBe(true);
         });
 
