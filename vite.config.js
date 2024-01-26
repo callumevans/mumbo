@@ -15,7 +15,7 @@ export default defineConfig({
             entry: resolve(__dirname, "src/Mumbo.ts"),
             name: "Mumbo",
             fileName: "Mumbo",
-            formats: ["cjs"]
+            formats: ["cjs"],
         },
     },
 });
