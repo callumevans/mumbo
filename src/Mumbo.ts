@@ -45,8 +45,8 @@ export function CreateServer(): MumboServer {
             body = [];
 
             requests.push({
-                url: new URL(request.url, `http://${request.headers.host}`),
-                method: request.method,
+                url: new URL(String(request.url), `http://${request.headers.host}`),
+                method: String(request.method),
                 body: bodyString,
             });
 

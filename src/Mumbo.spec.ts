@@ -1,11 +1,11 @@
-import { CreateServer, DumboRequestLog, DumboServerStartResult } from "@Mumbo";
+import { CreateServer, MumboRequestLog, MumboServerStartResult } from "@Mumbo";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("Starting and stopping the server", () => {
     describe("Start server with specified port", () => {
         let server = CreateServer();
         let response: Response | null = null;
-        let serverStartResult: DumboServerStartResult | null = null;
+        let serverStartResult: MumboServerStartResult | null = null;
 
         beforeAll(async () => {
             serverStartResult = await server.Start(9091);
@@ -32,7 +32,7 @@ describe("Starting and stopping the server", () => {
     describe("Start server without a specified port", () => {
         let server = CreateServer();
         let response: Response | null = null;
-        let serverStartResult: DumboServerStartResult | null = null;
+        let serverStartResult: MumboServerStartResult | null = null;
 
         beforeAll(async () => {
             serverStartResult = await server.Start();
@@ -60,7 +60,7 @@ describe("Starting and stopping the server", () => {
     describe("Stopping the server", () => {
         let server = CreateServer();
         let response: Response | null = null;
-        let serverStartResult: DumboServerStartResult | null = null;
+        let serverStartResult: MumboServerStartResult | null = null;
 
         beforeAll(async () => {
             serverStartResult = await server.Start();
@@ -89,7 +89,7 @@ describe("Making requests", () => {
     });
 
     describe("Clearing requests", () => {
-        let requests: DumboRequestLog[] = [];
+        let requests: MumboRequestLog[] = [];
 
         beforeAll(async () => {
             await fetch(`http://localhost:9091/test-request`);
@@ -107,7 +107,7 @@ describe("Making requests", () => {
     });
 
     describe("Making a GET request", () => {
-        let requests: DumboRequestLog[] = [];
+        let requests: MumboRequestLog[] = [];
 
         beforeAll(async () => {
             await fetch(`http://localhost:9091/test-request`);
@@ -131,8 +131,60 @@ describe("Making requests", () => {
         });
     });
 
+    describe("Making a request to the base path", () => {
+        describe("With a trailing '/'", () => {
+            let requests: MumboRequestLog[] = [];
+
+            beforeAll(async () => {
+                await fetch(`http://localhost:9091/`);
+                requests = server.GetRequests();
+            });
+
+            afterAll(() => {
+                server.ClearRequests();
+            });
+
+            it("Should return the request with `GetRequests()`", () => {
+                expect(requests.length).to.equal(1);
+            });
+
+            it("Request log should contain a URL with the path `/`", () => {
+                expect(requests[0].url.pathname).to.equal("/");
+            });
+
+            it("Request log should contain the method 'GET'", () => {
+                expect(requests[0].method).to.equal("GET");
+            });
+        });
+
+        describe("Without a trailing '/'", () => {
+            let requests: MumboRequestLog[] = [];
+
+            beforeAll(async () => {
+                await fetch(`http://localhost:9091`);
+                requests = server.GetRequests();
+            });
+
+            afterAll(() => {
+                server.ClearRequests();
+            });
+
+            it("Should return the request with `GetRequests()`", () => {
+                expect(requests.length).to.equal(1);
+            });
+
+            it("Request log should contain a URL with the path `/`", () => {
+                expect(requests[0].url.pathname).to.equal("/");
+            });
+
+            it("Request log should contain the method 'GET'", () => {
+                expect(requests[0].method).to.equal("GET");
+            });
+        });
+    });
+
     describe("Making a POST request", () => {
-        let requests: DumboRequestLog[] = [];
+        let requests: MumboRequestLog[] = [];
 
         beforeAll(async () => {
             await fetch(`http://localhost:9091/test-request`, {

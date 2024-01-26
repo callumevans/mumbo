@@ -6,7 +6,9 @@
   "types": "dist/Mumbo.d.ts",
   "scripts": {
     "build": "vite build",
-    "test": "vitest --run"
+    "test": "vitest --run",
+    "lint:check": "dprint check",
+    "lint:fix": "dprint fmt"
   },
   "repository": {
     "type": "git",
