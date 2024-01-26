@@ -1,12 +1,5 @@
 <h1 align="center">Mumbo</h1>
 
-# Contents
-- [Introduction](#Introduction)
-- [USage](#Usage)
-    * [Starting a Mumbo server](#Starting%20a%20Mumbo%20server)
-
-# Introduction
-
 Mumbo is a simple http server implementation designed
 to be used in testing as an alternative to mocking.
 
@@ -16,11 +9,11 @@ have to mock them. A real HTTP request and response is being sent.
 
 There are some additional methods provided to help with assertions.
 
-## Usage
+# Usage
 
 Import and call `CreateServer` to create a Mumbo server instance.
 
-### Starting a Mumbo server
+## Starting a Mumbo server
 
 You can start a Mumbo server on a specific port.
 
@@ -47,7 +40,7 @@ const mumboStartResult = await mumboServer.Start()
 const port = mumboStartResult.port;
 ```
 
-### Configuring a response
+## Configuring a response
 You can configure responses that Mumbo should return for specific requests. By default, any requests made will return a 200 and an empty body.
 ```typescript
 // Any GET requests made to the server to the /faked-response-body will
@@ -62,7 +55,7 @@ mumboServer.ConfigureResponse("GET", "/faked-response-body", () => {
 });
 ```
 
-### Getting requests
+## Getting requests
 Mumbo keeps a log of all requests that have been made to it.
 
 ```typescript
@@ -84,7 +77,7 @@ You can also clear the list of requests.
 mumboServer.ClearRequests();
 ```
 
-### Stopping Mumbo
+## Stopping Mumbo
 Mumbo can be stopped easily.
 
 ```typescript
