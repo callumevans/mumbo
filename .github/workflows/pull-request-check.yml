@@ -71,7 +71,7 @@ jobs:
         with:
           cmd: install
 
-      - name: Run tests
+      - name: Run build
         run: |-
           npm run build
 
