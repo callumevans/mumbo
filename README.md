@@ -1,5 +1,10 @@
 <h1 align="center">Mumbo</h1>
 
+# Contents
+- [Introduction](#Introduction)
+- [USage](#Usage)
+    * [Starting a Mumbo server](#Starting a Mumbo server)
+
 # Introduction
 
 Mumbo is a simple http server implementation designed
