@@ -68,6 +68,6 @@ jobs:
         with:
           cmd: install
 
-      - name: Check linting
+      - name: Run tests
         run: |-
           npm test
