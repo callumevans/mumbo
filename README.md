@@ -1,5 +1,11 @@
 <h1 align="center">Mumbo</h1>
-<hr />
+
+# Contents
+1. [Introduction](#Introduction)
+2. [Usage](#Usage)
+3. [Configuring a response](#Configuring a response)
+4. [Getting requests](#Getting requests)
+4. [Stopping Mumbo](#Stopping Mumbo)
 
 # Introduction
 
@@ -29,7 +35,7 @@ const mumboServer = CreateServer();
 await mumboServer.Start(1234)
 ```
 
-Or let Mumbo use any free port
+Or let Mumbo use any free port.
 
 ```typescript
 import { CreateServer } from "mumbo";
@@ -78,4 +84,12 @@ You can also clear the list of requests.
 
 ```typescript
 mumboServer.ClearRequests();
+```
+
+### Stopping Mumbo
+Mumbo can be stopped easily.
+
+```typescript
+// Stops Mumbo from listening for requests
+await server.Stop();
 ```
