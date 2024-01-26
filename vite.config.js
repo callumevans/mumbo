@@ -10,11 +10,4 @@ export default defineConfig({
             exclude: "./src/Mumbo.spec.ts",
         }),
     ],
-    build: {
-        lib: {
-            entry: resolve(__dirname, "src/Mumbo.ts"),
-            name: "Mumbo",
-            fileName: "Mumbo",
-        },
-    },
 });

@@ -5,7 +5,7 @@
   "main": "dist/Mumbo.mjs",
   "types": "dist/Mumbo.d.ts",
   "scripts": {
-    "build": "vite build",
+    "build": "tsup ./src/Mumbo.ts",
     "test": "vitest --run",
     "lint:check": "dprint check",
     "lint:fix": "dprint fmt"
@@ -17,7 +17,7 @@
   "devDependencies": {
     "dprint": "0.45.0",
     "@types/node": "20.10.6",
-    "vite": "5.0.11",
+    "tsup": "8.0.1",
     "vitest": "1.1.3",
     "vite-tsconfig-paths": "4.2.3",
     "vite-plugin-dts": "3.7.0"
