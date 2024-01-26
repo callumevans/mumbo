@@ -3,7 +3,7 @@
 # Contents
 - [Introduction](#Introduction)
 - [USage](#Usage)
-    * [Starting a Mumbo server](#Starting a Mumbo server)
+    * [Starting a Mumbo server](#Starting%20a%20Mumbo%20server)
 
 # Introduction
 
