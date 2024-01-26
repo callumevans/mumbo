@@ -155,7 +155,7 @@ describe("Making requests", () => {
             it("Request log should contain the method 'GET'", () => {
                 expect(requests[0].method).to.equal("GET");
             });
-        })
+        });
 
         describe("Without a trailing '/'", () => {
             let requests: MumboRequestLog[] = [];
@@ -180,7 +180,7 @@ describe("Making requests", () => {
             it("Request log should contain the method 'GET'", () => {
                 expect(requests[0].method).to.equal("GET");
             });
-        })
+        });
     });
 
     describe("Making a POST request", () => {
