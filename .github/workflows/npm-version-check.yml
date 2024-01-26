@@ -1,7 +1,0 @@
-name: npm-version-check
-on:
-  pull_request:
-    branches:
-      - main
-
-jobs:
