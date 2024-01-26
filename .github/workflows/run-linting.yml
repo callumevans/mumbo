@@ -23,6 +23,6 @@ jobs:
         with:
           cmd: install
 
-      - name: Check linting
+      - name: Run Tests
         run: |-
-          npm run lint:check
+          npm test
