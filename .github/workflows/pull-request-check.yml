@@ -6,7 +6,7 @@ on:
 
 jobs:
   linting:
-    name: npm-version-check
+    name: linting
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -51,7 +51,7 @@ jobs:
         run: exit 1
 
   tests:
-    name: npm-version-check
+    name: tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
