@@ -2,7 +2,7 @@ name: npm-version-check
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   npm-version-check:
