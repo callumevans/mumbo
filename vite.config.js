@@ -1,8 +1,8 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import vitePluginExternal from "vite-plugin-external";
 import tsconfigPaths from "vite-tsconfig-paths";
-import vitePluginExternal from 'vite-plugin-external';
 
 export default defineConfig({
     plugins: [
@@ -12,7 +12,7 @@ export default defineConfig({
         }),
         vitePluginExternal({
             nodeBuiltins: true,
-        })
+        }),
     ],
     build: {
         lib: {
