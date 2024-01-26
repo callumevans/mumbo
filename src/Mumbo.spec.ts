@@ -1,4 +1,4 @@
-import { CreateServer, MumboRequestLog, MumboServerStartResult } from "../dist/Mumbo";
+import { CreateServer, MumboRequestLog, MumboServerStartResult } from "@Mumbo";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("Starting and stopping the server", () => {
