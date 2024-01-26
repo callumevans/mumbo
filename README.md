@@ -1,11 +1,11 @@
 <h1 align="center">Mumbo</h1>
 
-Mumbo is a simple http server implementation designed
+Mumbo is a simple http server designed
 to be used in testing as an alternative to mocking.
 
-If your project is dependent on HTTP services, Mumbo allows you
-to define various routes and their responses, meaning you don't
-have to mock them. A real HTTP request and response is being sent.
+If your project is dependent on HTTP services, Mumbo allows you to quickly set up 
+a HTTP server and define its routes and their responses, meaning you don't
+have to mock them.
 
 There are some additional methods provided to help with assertions.
 
