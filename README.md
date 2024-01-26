@@ -3,9 +3,9 @@
 # Contents
 1. [Introduction](#Introduction)
 2. [Usage](#Usage)
-3. [Configuring a response](#Configuring a response)
-4. [Getting requests](#Getting requests)
-4. [Stopping Mumbo](#Stopping Mumbo)
+3. [Configuring a response](###Configuring a response)
+4. [Getting requests](###Getting requests)
+4. [Stopping Mumbo](###Stopping Mumbo)
 
 # Introduction
 
