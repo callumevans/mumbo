@@ -1,10 +1,9 @@
 {
   "name": "mumbo",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
-  "main": "dist/Mumbo.cjs",
+  "main": "dist/Mumbo.js",
   "types": "dist/Mumbo.d.ts",
-  "type": "module",
   "scripts": {
     "build": "vite build",
     "test": "vitest --run",
