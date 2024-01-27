@@ -1,8 +1,8 @@
 {
   "name": "mumbo",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
-  "main": "dist/Mumbo.js",
+  "main": "dist/Mumbo.cjs",
   "types": "dist/Mumbo.d.ts",
   "type": "module",
   "scripts": {
