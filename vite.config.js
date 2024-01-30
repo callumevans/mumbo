@@ -22,6 +22,10 @@ export default defineConfig({
                     src: normalizePath(path.resolve(__dirname, "./package.json")),
                     dest: "./",
                 },
+                {
+                    src: normalizePath(path.resolve(__dirname, "./README.md")),
+                    dest: "./",
+                },
             ],
         }),
     ],

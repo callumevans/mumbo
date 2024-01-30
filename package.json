@@ -1,6 +1,6 @@
 {
   "name": "mumbo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "Mumbo.cjs",
   "types": "Mumbo.d.ts",
